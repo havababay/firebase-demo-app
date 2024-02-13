@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "fir-demo-app-210f8": {
+      "hosting": {
+        "firebase-demo-app": [
+          "fir-demo-app-210f8"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "fir-demo-app-210f8"
+  }
+}

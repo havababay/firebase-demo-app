@@ -1,0 +1,9 @@
+{
+  "hosting": [
+    {
+      "target": "firebase-demo-app",
+      "source": ".",
+      "frameworksBackend": {}
+    }
+  ]
+}
