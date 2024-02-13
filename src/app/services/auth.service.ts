@@ -14,13 +14,18 @@ export class AuthService {
       (this.afAuth, email, password).
       then((res : UserCredential) => 
         new User())
-      .catch((error) => { throw new Error('Failed to sign in', error);});
+      //.catch((error) => { 
+       // throw new Error('Failed to sign in', error);
+      //})
+      ;
   }
 
   async signOut() : Promise<void> {
     return signOut(this.afAuth)
       .then(() => console.log("login successful"))
-      .catch((error) => { throw new Error('Failed to sign out', error);});
+      .catch((error) => { 
+        throw new Error('Failed to sign out', error);
+      });
   }
 
   addAuthListerer(callback : (user? : User) => void) : void {    

@@ -26,5 +26,5 @@ export const appConfig: ApplicationConfig = {
         importProvidersFrom(
           provideFirestore(() => getFirestore())), 
         importProvidersFrom(
-          provideFunctions(() => getFunctions())), importProvidersFrom(provideFirebaseApp(() => initializeApp({"projectId":"fir-demo-app-210f8","appId":"1:258607751104:web:7395989837990a9f5ff225","storageBucket":"fir-demo-app-210f8.appspot.com","apiKey":"AIzaSyCzeJ6PU4Y6CtkTfmNT_OQiCBrN4ugepiA","authDomain":"fir-demo-app-210f8.firebaseapp.com","messagingSenderId":"258607751104","measurementId":"G-5KS9MCPTL4"}))), importProvidersFrom(provideAuth(() => getAuth()))]
+          provideFunctions(() => getFunctions()))]
 };
