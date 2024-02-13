@@ -25,6 +25,7 @@
               "src/assets"
             ],
             "styles": [
+              "@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.css"
             ],
             "scripts": []
@@ -84,10 +85,28 @@
               "src/assets"
             ],
             "styles": [
+              "@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.css"
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "version": 2
+          },
+          "configurations": {
+            "production": {
+              "buildTarget": "firebase-demo-app:build:production",
+              "serveTarget": "firebase-demo-app:serve:production"
+            },
+            "development": {
+              "buildTarget": "firebase-demo-app:build:development",
+              "serveTarget": "firebase-demo-app:serve:development"
+            }
+          },
+          "defaultConfiguration": "production"
         }
       }
     }
