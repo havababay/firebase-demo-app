@@ -13,7 +13,7 @@ export class AuthService {
     return signInWithEmailAndPassword
       (this.afAuth, email, password).
       then((res : UserCredential) => 
-        new User());
+        new User(res.user.uid));
   }
 
   async signOut() : Promise<void> {
@@ -23,7 +23,7 @@ export class AuthService {
   addAuthListerer(callback : (user? : User) => void) : void {    
     const onChange = (afUser: any) => {
       if (afUser) {
-        callback(new User());
+        callback(new User(afUser.uid));
       } else {
         callback();
       }
@@ -38,7 +38,7 @@ export class AuthService {
     if (!user) {
       return;
     } else {
-      return new User();
+      return new User(user.uid);
     }
   }
 }
