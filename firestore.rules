@@ -1,0 +1,16 @@
+rules_version = '2';
+
+// Deploy using firestore tools:
+// firebase deploy --only firestore:rules
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /{document=**} {
+      allow write: if false;
+      allow read: if request.auth.uid != null;
+    }
+
+    match /users/{userId} {
+      allow read, write: if request.auth.uid == userId;
+    }
+  }
+}
