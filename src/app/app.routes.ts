@@ -1,7 +1,7 @@
 import { Routes } from '@angular/router';
 import { SignInComponent } from './sign-in/sign-in.component';
-import { ReservationsListComponent } from './reservations-list/reservations-list.component';
 import { canActivate  , redirectUnauthorizedTo } from '@angular/fire/auth-guard';
+import { RestaurantsListComponent } from './restaurants-list/restaurants-list.component';
 
 const redirectToSignIn = () => redirectUnauthorizedTo(['sign-in']);
 
@@ -12,7 +12,7 @@ export const routes: Routes = [
     },
     {
         path: "", 
-        component: ReservationsListComponent,
+        component: RestaurantsListComponent,
         ...canActivate(redirectToSignIn)
     },
 ];
