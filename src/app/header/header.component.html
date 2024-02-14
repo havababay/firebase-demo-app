@@ -1,0 +1,10 @@
+<mat-toolbar color="primary">
+    Reservations - Firebase Demo
+    <span class="example-spacer"></span>
+    <button 
+        mat-button 
+        *ngIf="shouldShowLogoutButton()"
+        (click)="onSignOutClicked()">
+        Logout
+    </button>
+</mat-toolbar>
