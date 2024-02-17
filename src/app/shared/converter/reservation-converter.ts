@@ -1,4 +1,4 @@
-import { DocumentData, QueryDocumentSnapshot, SnapshotOptions } from "firebase/firestore";
+import { DocumentData, QueryDocumentSnapshot, SnapshotOptions, Timestamp } from "firebase/firestore";
 import { Reservation } from "../model/reservation";
 
 export const reservationConverter = {
@@ -6,7 +6,7 @@ export const reservationConverter = {
         return {
                 resturantId: restaurant.resturantId,
                 userId: restaurant.userId,
-                date: restaurant.date,
+                date: Timestamp.fromDate(restaurant.date),
                 numOfPeople: restaurant.numOfPeople,
             };
     },
@@ -16,7 +16,7 @@ export const reservationConverter = {
             snapshot.id,
             data['resturantId'],
             data['userId'],
-            new Date(data['date'] * 1000),
+            data['date'].toDate(),
             data['numOfPeople']);
     }
 };
