@@ -1,7 +1,7 @@
 <div>
     <div *ngFor="let reservation of currentUserReservations; let index">
         <div [routerLink]="['restaurant',reservation.resturantId]">
-            <b>{{ reservation.resturantId}}</b>
+            <b>{{ idToRestaurant.get(reservation.resturantId)?.name}}</b>
         </div>
         <div>{{ reservation.date | date:"short"}}</div>
         <div>{{ reservation.numOfPeople }} peope</div>
