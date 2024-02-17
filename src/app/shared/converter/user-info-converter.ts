@@ -1,7 +1,7 @@
 import { DocumentData, DocumentSnapshot, QueryDocumentSnapshot, SnapshotOptions } from "firebase/firestore";
 import { UserInfo } from "../model/user-info";
 
-export const userInforConverter = {
+export const userInfoConverter = {
     toFirestore: (userInfo : UserInfo) : DocumentData => {
         return {
             firstName: userInfo.firstName,
@@ -11,6 +11,10 @@ export const userInforConverter = {
     },
     fromFirestore: (snapshot : QueryDocumentSnapshot, options : SnapshotOptions) => {
         const data = snapshot.data(options);
-        return new UserInfo(data['firstName'], data['lastName'], data['bio']);
+        return new UserInfo(
+            snapshot.id,
+            data['firstName'], 
+            data['lastName'], 
+            data['bio']);
     }
 };

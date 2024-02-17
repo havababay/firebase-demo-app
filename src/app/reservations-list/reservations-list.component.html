@@ -1,1 +1,9 @@
-<p>reservations-list works!</p>,
+<div>
+    <div *ngFor="let reservation of currentUserReservations; let index">
+        <div [routerLink]="['restaurant',reservation.resturantId]">
+            <b>{{ reservation.resturantId}}</b>
+        </div>
+        <div>{{ reservation.date | date:"short"}}</div>
+        <div>{{ reservation.numOfPeople }} peope</div>
+    </div>
+</div>

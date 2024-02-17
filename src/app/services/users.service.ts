@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Firestore, doc } from '@angular/fire/firestore';
 import { getDoc } from 'firebase/firestore';
 import { UserInfo } from '../shared/model/user-info';
-import { userInforConverter } from '../shared/converter/user-info-converter';
+import { userInfoConverter } from '../shared/converter/user-info-converter';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +14,7 @@ export class UsersService {
 
   async getUserInfo(userId : string) : Promise<UserInfo | undefined> {
     const userInfoDocRef = 
-      doc(this.firestore, "users", userId).withConverter(userInforConverter)
+      doc(this.firestore, "users", userId).withConverter(userInfoConverter)
     return (await getDoc(userInfoDocRef)).data();
   }
 
