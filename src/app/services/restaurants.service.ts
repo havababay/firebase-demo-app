@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Restaurant } from '../shared/model/restaurant';
-import { Firestore, doc, getDoc } from '@angular/fire/firestore';
+import { Firestore, doc, getDoc, collection, addDoc, DocumentReference } from '@angular/fire/firestore';
 import { restaurantConverter } from '../shared/converter/restaurant-converter';
 
 @Injectable({
@@ -14,5 +14,13 @@ export class RestaurantsService {
     const restaurantDocRef = 
       doc(this.firestore, "restaurants", id).withConverter(restaurantConverter)
     return (await getDoc(restaurantDocRef)).data();
+  }
+
+  async createRestaurant(restaurant : Restaurant) : Promise<string> {
+    collection(this.firestore, "restaurants").withConverter(restaurantConverter) 
+    
+    return await addDoc(
+      collection(this.firestore, "restaurants").withConverter(restaurantConverter), restaurant)
+        .then((ref : DocumentReference<Restaurant>) => ref.id);
   }
 }

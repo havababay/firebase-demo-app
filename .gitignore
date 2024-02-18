@@ -45,3 +45,4 @@ Thumbs.db
 .firebase
 *-debug.log
 .runtimeconfig.json
+/src/custom-claims/fir-demo-app-210f8-firebase-adminsdk-m8y2h-ba9cbde698.json
